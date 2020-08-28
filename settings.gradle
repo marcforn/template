@@ -1,0 +1,5 @@
+include ':authentication'
+include ':common'
+include ':onboarding'
+include ':app'
+rootProject.name = "Template"
