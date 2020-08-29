@@ -41,6 +41,11 @@ dependencies {
     // Material
     api "com.google.android.material:material:$MATERIAL_VERSION"
 
+    // Network
+    api "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    api "com.squareup.okhttp3:logging-interceptor:$OKHTP3_VERSION"
+    api "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+
     // Testing
     testApi "junit:junit:$JUNIT_VERSION"
 
