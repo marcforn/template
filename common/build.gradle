@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 
 android {
 
@@ -38,11 +40,23 @@ dependencies {
     api "androidx.navigation:navigation-fragment-ktx:$ANDROIDX_NAVIGATION_VERSION"
     api "androidx.navigation:navigation-ui-ktx:$ANDROIDX_NAVIGATION_VERSION"
 
+
+    // Dependency Injection
+    api "com.google.dagger:dagger:$DAGGER_VERSION"
+    api "com.google.dagger:dagger-android:$DAGGER_VERSION"
+    api "com.google.dagger:dagger-android-support:$DAGGER_VERSION"
+    kapt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    kapt "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
+
+    // Logs
+    api "com.jakewharton.timber:timber:$TIMBER_VERSION"
+
     // Material
     api "com.google.android.material:material:$MATERIAL_VERSION"
 
     // Network
     api "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    api "com.squareup.okhttp3:okhttp:$OKHTP3_VERSION"
     api "com.squareup.okhttp3:logging-interceptor:$OKHTP3_VERSION"
     api "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
 

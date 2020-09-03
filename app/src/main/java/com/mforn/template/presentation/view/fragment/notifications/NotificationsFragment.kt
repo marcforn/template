@@ -1,4 +1,4 @@
-package com.mforn.template.ui.notifications
+package com.mforn.template.presentation.view.fragment.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

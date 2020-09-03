@@ -1,4 +1,4 @@
-package com.mforn.common.data.repository
+package com.mforn.common.data.resources.repository
 
 import android.content.res.Resources
 import androidx.annotation.IntegerRes

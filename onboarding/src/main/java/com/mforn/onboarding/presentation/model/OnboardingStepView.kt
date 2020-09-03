@@ -1,4 +1,4 @@
-package com.mforn.onboarding.presentation.view
+package com.mforn.onboarding.presentation.model
 
 data class OnboardingStepView(
         val title: String,

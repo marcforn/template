@@ -1,4 +1,4 @@
-package com.mforn.template.ui.home
+package com.mforn.template.presentation.view.fragment.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

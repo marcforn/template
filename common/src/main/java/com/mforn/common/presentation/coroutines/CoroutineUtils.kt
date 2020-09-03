@@ -21,7 +21,7 @@ private const val API_RETRIES = 3
  * @return Job that can be cancelled
  *
  */
-fun <T> launchTask(block: suspend (() -> T), onCancel: (() -> Unit)? = null, onSuccess: ((T) -> Unit)? = null, onError: ((Throwable) -> Unit)? = null, dispatchers: CoroutineDispatchers): Job {
+fun <T> launchTask(block: suspend (() -> T), onCancel: (() -> Unit)? = null, onSuccess: ((T) -> Unit)? = null, onError: ((CustomException) -> Unit)? = null, dispatchers: CoroutineDispatchers): Job {
     return CoroutineScope(dispatchers.main).launch {
         try {
             val result = withContext(dispatchers.io) { block() }
@@ -31,7 +31,7 @@ fun <T> launchTask(block: suspend (() -> T), onCancel: (() -> Unit)? = null, onS
         } catch (e: CustomException) {
             onError?.let { it(e) }
         } catch (t: Throwable) {
-            onError?.let { it(t) }
+            onError?.let { it(CustomErrorType.InternalError(t.localizedMessage ?: "Unexpected Internal Error")) }
         }
     }
 }
