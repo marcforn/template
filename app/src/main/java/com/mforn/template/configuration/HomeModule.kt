@@ -1,7 +1,7 @@
-package com.mforn.template.presentation.di
+package com.mforn.template.configuration
 
-import android.app.Activity
-import com.mforn.common.presentation.view.di.ActivityModule
+import com.mforn.common.configuration.ActivityModule
+import com.mforn.common.presentation.view.activity.BaseActivity
 import com.mforn.template.presentation.view.activity.HomeActivity
 import dagger.Binds
 import dagger.Module
@@ -10,7 +10,7 @@ import dagger.Module
 abstract class HomeActivityModule {
 
     @Binds
-    abstract fun bindActivity(activity: HomeActivity): Activity
+    abstract fun bindHomeActivity(activity: HomeActivity): BaseActivity
 
 }
 

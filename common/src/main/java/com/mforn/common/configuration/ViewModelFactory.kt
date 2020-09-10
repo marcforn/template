@@ -1,11 +1,8 @@
-package com.mforn.template.presentation.application.di
+package com.mforn.common.configuration
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import dagger.Binds
 import dagger.MapKey
-import dagger.Module
-import dagger.multibindings.IntoMap
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -23,16 +20,4 @@ class ViewModelFactory @Inject constructor(private val viewModels: MutableMap<Cl
 @Target(AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 @MapKey
-internal annotation class ViewModelKey(val value: KClass<out ViewModel>)
-
-@Module
-abstract class ViewModelModule {
-
-    @Binds
-    internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
-
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(SectorPerformanceViewModel::class)
-//    internal abstract fun sectorPerformanceViewModel(viewModel: SectorPerformanceViewModel): ViewModel
-}
+annotation class ViewModelKey(val value: KClass<out ViewModel>)

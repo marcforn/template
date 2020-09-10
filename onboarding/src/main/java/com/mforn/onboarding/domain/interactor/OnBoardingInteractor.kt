@@ -5,7 +5,7 @@ import com.mforn.onboarding.domain.model.OnboardingStep
 
 interface OnBoardingInteractor {
 
-    fun getOnBoardingCards(): List<OnboardingStep>
+    suspend fun getOnBoardingCards(): List<OnboardingStep>
 
     fun setOnBoardingFinished()
 

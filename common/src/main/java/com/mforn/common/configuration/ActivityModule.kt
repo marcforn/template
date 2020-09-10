@@ -1,4 +1,4 @@
-package com.mforn.common.presentation.view.di
+package com.mforn.common.configuration
 
 import dagger.Module
 

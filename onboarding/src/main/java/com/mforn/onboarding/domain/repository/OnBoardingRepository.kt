@@ -4,5 +4,5 @@ import com.mforn.onboarding.domain.model.OnboardingStep
 
 interface OnBoardingRepository {
 
-    fun getOnBoardingCards(): List<OnboardingStep>
+    suspend fun getOnBoardingCards(): List<OnboardingStep>
 }

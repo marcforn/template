@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply from: '../application_test.gradle'
 
 android {
 
@@ -55,7 +57,6 @@ dependencies {
     // Development support
     debugImplementation "com.facebook.stetho:stetho:$STETHO_VERSION"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$LEAK_CANARY_VERSION"
-
 
 }
 

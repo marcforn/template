@@ -1,6 +1,6 @@
 package com.mforn.template.presentation.application
 
-import com.mforn.template.presentation.application.di.DaggerApplicationComponent
+import com.mforn.template.configuration.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import com.mforn.template.presentation.application.view.BaseApplication
 

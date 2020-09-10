@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply from: '../library_test.gradle'
 
 
 android {
@@ -30,5 +31,11 @@ android {
 }
 
 dependencies {
+    // Modules
     implementation project(path: ':common')
+
+    // Dependency Injection
+    kapt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    kapt "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
+
 }

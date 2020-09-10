@@ -1,13 +1,12 @@
-package com.mforn.template.presentation.application.di
+package com.mforn.template.configuration
 
-import com.mforn.template.presentation.di.HomeModule
 import com.mforn.template.presentation.view.activity.HomeActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 
 @Module
-abstract class InjectorsModule {
+abstract class  AppInjectorsModule {
 
     //region Activity
     @ContributesAndroidInjector(modules = [(HomeModule::class)])

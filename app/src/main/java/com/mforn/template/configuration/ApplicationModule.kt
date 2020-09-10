@@ -1,4 +1,4 @@
-package com.mforn.template.presentation.application.di
+package com.mforn.template.configuration
 
 import android.app.Application
 import com.mforn.template.presentation.application.ApplicationController

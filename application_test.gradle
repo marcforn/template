@@ -1,0 +1,105 @@
+apply plugin: 'jacoco'
+
+/**
+ * Testing Gradle files includes:
+ *
+ * 1- testDebug/testRelease tasks : to launch all testing process (tests + coverage + coverage threshold validation)
+ * 2 -jacocoTestDebugReport/jacocoTestReleaseReport : to launch test coverage
+ * 2 -jacocoTestCoverageDebugVerification/jacocoTestCoverageReleaseVerification : to check coverage threshold
+ */
+
+task('testDebug', group: 'test', dependsOn: 'jacocoTestCoverageDebugVerification')
+task('testRelease', group: 'test', dependsOn: 'jacocoTestCoverageReleaseVerification')
+
+android.applicationVariants.all { variant ->
+    task("jacocoTest" + variant.name.capitalize() + "Report",
+            type: JacocoReport,
+            dependsOn: 'test' + variant.name.capitalize() + 'UnitTest') {
+        reports {
+            xml.enabled = true
+            html.enabled = true
+        }
+
+        def includes = [
+                '**/*Presenter.class',
+                '**/*PresenterImpl.class',
+                '**/*Interactor.class',
+                '**/*InteractorImpl.class'
+        ]
+
+        def excludes = [
+                '**/Dagger*Interactor.class'
+        ]
+
+        // generated classes
+        classDirectories.from = fileTree(
+                dir: "$buildDir/intermediates/classes/" + variant.name,
+                includes: includes,
+                exclude: excludes
+        ) + fileTree(
+                dir: "$buildDir/tmp/kotlin-classes/" + variant.name,
+                includes: includes,
+                exclude: excludes
+        )
+
+        // sources
+        sourceDirectories.from = files([
+                android.sourceSets.main.java.srcDirs,
+                "src/main/kotlin"
+        ])
+        executionData.from = files("$buildDir/jacoco/test" + variant.name.capitalize() + "UnitTest.exec")
+    }
+
+    task("jacocoTestCoverage" + variant.name.capitalize() + "Verification",
+            type: JacocoCoverageVerification,
+            dependsOn: 'jacocoTest' + variant.name.capitalize() + 'Report') {
+
+        def includes = [
+                '**/*Presenter.class',
+                '**/*PresenterImpl.class',
+                '**/*Interactor.class',
+                '**/*InteractorImpl.class'
+        ]
+
+        def excludes = [
+                '**/Dagger*Interactor.class'
+        ]
+
+        // generated classes
+        classDirectories.from = fileTree(
+                dir: "$buildDir/intermediates/classes/" + variant.name,
+                includes: includes,
+                exclude: excludes
+        ) + fileTree(
+                dir: "$buildDir/tmp/kotlin-classes/" + variant.name,
+                includes: includes,
+                exclude: excludes
+        )
+
+        // sources
+        sourceDirectories.from = files([
+                android.sourceSets.main.java.srcDirs,
+                "src/main/kotlin"
+        ])
+        executionData.from = files("$buildDir/jacoco/test" + variant.name.capitalize() + "UnitTest.exec")
+
+        violationRules {
+            setFailOnViolation(true)
+
+            rule {
+                limit {
+                    counter = "CLASS"
+                    minimum = new BigDecimal("$COVERAGE_CLASS")
+                }
+                limit {
+                    counter = 'METHOD'
+                    minimum = new BigDecimal("$COVERAGE_METHOD")
+                }
+                limit {
+                    counter = 'LINE'
+                    minimum = new BigDecimal("$COVERAGE_LINE")
+                }
+            }
+        }
+    }
+}
