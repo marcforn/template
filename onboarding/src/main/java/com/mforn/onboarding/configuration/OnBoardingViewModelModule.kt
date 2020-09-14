@@ -19,5 +19,5 @@ abstract class OnBoardingViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(OnboardingViewModel::class)
-    internal abstract fun sectorPerformanceViewModel(viewModel: OnboardingViewModel): ViewModel
+    internal abstract fun bindOnboardingViewModel(viewModel: OnboardingViewModel): ViewModel
 }

@@ -11,7 +11,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 
-class OnboardingViewModel(
+class OnboardingViewModel @Inject constructor(
     coroutineDispatchers: CoroutineDispatchers,
     private val mapper: ViewMapper<List<OnboardingStepView>, List<OnboardingStep>>,
     private val interactor: OnBoardingInteractor,

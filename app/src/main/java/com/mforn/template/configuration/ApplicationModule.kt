@@ -1,14 +1,12 @@
 package com.mforn.template.configuration
 
-import android.app.Application
-import com.mforn.template.presentation.application.ApplicationController
-import dagger.Binds
+import com.mforn.common.presentation.coroutines.CoroutineDispatchers
 import dagger.Module
+import dagger.Provides
+import kotlinx.coroutines.Dispatchers
+import javax.inject.Singleton
 
 @Module
-abstract class ApplicationModule {
-
-    @Binds
-    abstract fun bindApplication(application: ApplicationController): Application
+class ApplicationModule {
 
 }

@@ -1,11 +1,11 @@
 package com.mforn.template.configuration
 
 import com.mforn.authentication.configuration.AuthenticationInjectorsModule
+import com.mforn.common.configuration.CommonModule
 import com.mforn.onboarding.configuration.OnBoardingInjectorsModule
 import com.mforn.onboarding.configuration.OnBoardingViewModelModule
 import com.mforn.template.presentation.application.ApplicationController
 import dagger.Component
-import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
@@ -17,6 +17,8 @@ import javax.inject.Singleton
         // Application
         (AndroidSupportInjectionModule::class),
         (ApplicationModule::class),
+        // Common Module
+        (CommonModule::class),
         // App Module
         (AppInjectorsModule::class),
         (AppViewModelModule::class),
@@ -27,6 +29,7 @@ import javax.inject.Singleton
         (AuthenticationInjectorsModule::class)
     ]
 )
+
 internal interface ApplicationComponent : AndroidInjector<ApplicationController> {
     @Component.Builder
     abstract class Builder : AndroidInjector.Builder<ApplicationController>()
