@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 apply from: '../library_test.gradle'
 
 
@@ -43,11 +42,10 @@ dependencies {
 
 
     // Dependency Injection
-    api "com.google.dagger:dagger:$DAGGER_VERSION"
-    api "com.google.dagger:dagger-android:$DAGGER_VERSION"
-    api "com.google.dagger:dagger-android-support:$DAGGER_VERSION"
-    kapt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
-    kapt "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
+    // Dependency Injection
+    api "org.koin:koin-core:$KOIN_VERSION"
+    api "org.koin:koin-android:$KOIN_VERSION"
+    api "org.koin:koin-android-viewmodel:$KOIN_VERSION"
 
     // Logs
     api "com.jakewharton.timber:timber:$TIMBER_VERSION"

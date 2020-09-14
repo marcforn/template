@@ -3,10 +3,9 @@ package com.mforn.onboarding.presentation.model.mapper
 import com.mforn.common.presentation.model.mapper.ViewMapper
 import com.mforn.onboarding.domain.model.OnboardingStep
 import com.mforn.onboarding.presentation.model.OnboardingStepView
-import javax.inject.Inject
 
 
-class OnboardingMapper @Inject constructor(): ViewMapper<List<OnboardingStepView>, List<OnboardingStep>> {
+class OnboardingMapper : ViewMapper<List<OnboardingStepView>, List<OnboardingStep>> {
 
     override fun mapToView(data: List<OnboardingStep>): List<OnboardingStepView> {
         val modelList = mutableListOf<OnboardingStepView>()

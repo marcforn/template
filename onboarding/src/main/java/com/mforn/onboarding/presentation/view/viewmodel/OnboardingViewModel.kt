@@ -8,10 +8,9 @@ import com.mforn.onboarding.domain.interactor.OnBoardingInteractor
 import com.mforn.onboarding.domain.model.OnboardingStep
 import com.mforn.onboarding.presentation.model.OnboardingStepView
 import timber.log.Timber
-import javax.inject.Inject
 
 
-class OnboardingViewModel @Inject constructor(
+class OnboardingViewModel(
     coroutineDispatchers: CoroutineDispatchers,
     private val mapper: ViewMapper<List<OnboardingStepView>, List<OnboardingStep>>,
     private val interactor: OnBoardingInteractor,

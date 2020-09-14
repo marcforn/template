@@ -1,12 +1,12 @@
 package com.mforn.template.presentation.application.view
 
+import android.app.Application
 import com.facebook.stetho.Stetho
-import dagger.android.DaggerApplication
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
 
-abstract class BaseApplication : DaggerApplication() {
+abstract class BaseApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

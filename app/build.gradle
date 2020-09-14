@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply from: '../application_test.gradle'
@@ -49,10 +48,6 @@ dependencies {
     implementation project(path: ':common')
     implementation project(path: ':onboarding')
     implementation project(path: ':authentication')
-
-    // Dependency Injection
-    kapt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
-    kapt "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
 
     // Development support
     debugImplementation "com.facebook.stetho:stetho:$STETHO_VERSION"
