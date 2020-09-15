@@ -14,9 +14,10 @@ import java.util.concurrent.TimeUnit
 
 private const val TIME_OUT_MILLIS = 5000L
 private const val USER_AGENT_HEADER = "User-Agent"
+private const val HOST_URL = ""
 
 
-class RetrofitAdapter(host: String, val appName : String) {
+class RetrofitAdapter() {
 
     private val retrofit: Retrofit
 
@@ -24,7 +25,7 @@ class RetrofitAdapter(host: String, val appName : String) {
         val okHttpClient = initializeOkHttpClient()
 
         val retrofitBuilder = Retrofit.Builder()
-            .baseUrl(host)
+            .baseUrl(HOST_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
 
@@ -66,7 +67,7 @@ class RetrofitAdapter(host: String, val appName : String) {
 
         private fun addRequestHeaders(request: Request): Request =
             request.newBuilder()
-                .header(USER_AGENT_HEADER, "$appName/Android/" + BuildConfig.VERSION_NAME)
+                .header(USER_AGENT_HEADER, "Template/Android/" + BuildConfig.VERSION_NAME)
                 .method(request.method, request.body)
                 .build()
     }

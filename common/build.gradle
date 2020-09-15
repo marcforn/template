@@ -58,6 +58,7 @@ dependencies {
     api "com.squareup.okhttp3:okhttp:$OKHTP3_VERSION"
     api "com.squareup.okhttp3:logging-interceptor:$OKHTP3_VERSION"
     api "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Testing
     testApi "junit:junit:$JUNIT_VERSION"

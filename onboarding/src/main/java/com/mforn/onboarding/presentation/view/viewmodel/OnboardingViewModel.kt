@@ -17,7 +17,7 @@ class OnboardingViewModel(
 ) : BaseViewModel<List<OnboardingStepView>>(coroutineDispatchers) {
 
 
-    fun execute() {
+    fun getData() {
         runTask(
             block = { mapper.mapToView(interactor.getOnBoardingCards()) },
             onSuccess = { updateState(BaseViewState.DataLoaded(it)) },

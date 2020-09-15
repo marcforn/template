@@ -27,9 +27,7 @@ android.applicationVariants.all { variant ->
                 '**/*InteractorImpl.class'
         ]
 
-        def excludes = [
-                '**/Dagger*Interactor.class'
-        ]
+        def excludes = []
 
         // generated classes
         classDirectories.from = fileTree(
@@ -61,9 +59,7 @@ android.applicationVariants.all { variant ->
                 '**/*InteractorImpl.class'
         ]
 
-        def excludes = [
-                '**/Dagger*Interactor.class'
-        ]
+        def excludes = []
 
         // generated classes
         classDirectories.from = fileTree(
